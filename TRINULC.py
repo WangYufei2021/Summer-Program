@@ -1,0 +1,22 @@
+xfile = open(input('Please input the file name: '), 'r')
+# EcoliK12.fasta
+# EcoliO157.fasta
+# caulobacterNA1000.fasta
+sequence = ''
+for line in xfile:
+    if not line.startswith('>'):
+        sequence = sequence + line.replace('\n', '')
+
+
+def count_kmers(read, k):
+    counts = {}
+    num_kmers = len(read) - k + 1
+    for i in range(num_kmers):
+        kmer = read[i:i + k]
+        if kmer not in counts:
+            counts[kmer] = 0
+        else:
+            counts[kmer]=counts[kmer]+1
+    print(counts)
+
+count_kmers(sequence, 3)
