@@ -31,7 +31,7 @@ def stop_codon_finder(seq):
     accumu_str = ''
     while term == True:
         splice = seq[:3]
-        if splice == 'TAG':
+        if splice == 'TAG' or 'TAA' or 'TGA':
             term = False
             return accumu_str
         accumu_str = accumu_str + seq[:3]
