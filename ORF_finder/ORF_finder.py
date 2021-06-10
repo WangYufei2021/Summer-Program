@@ -10,7 +10,7 @@ seq = sequence
 def start_codon_finder(seq):
     term = True
     while term == True:
-        splice = seq[:3]
+        splice = seq[:2]
         if splice == 'ATG':
             term = False
             return seq
