@@ -10,14 +10,13 @@ seq = sequence
 def start_codon_finder(seq):
     term = True
     while term == True:
-        splice = seq[:2]
+        splice = seq[:3]
         if splice == 'ATG':
             term = False
             return seq
         seq = seq[3:]
         if len(seq) == 0:
             term = False
-
 
 splice_codon = [0, 1, 2]
 store_list = []
@@ -58,8 +57,14 @@ for i in splice_codon:
     temp = start_codon_finder(temp_seq)
     store_list.append(temp)
 
-
+a=[]
 for i in store_list:
     temp = stop_codon_finder(i)
     if len(str(temp)) > 51:
-        print(temp)
+        a.append(temp)
+        print(a)
+
+import re
+for orf in a:
+    print(re.match(orf,sequence))
+    print(re.match(orf,complement))
